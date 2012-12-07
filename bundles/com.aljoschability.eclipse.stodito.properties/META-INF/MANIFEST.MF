@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Story Diagram Tooling: Properties
+Bundle-SymbolicName: com.aljoschability.eclipse.stodito.properties;singleton:=true
+Bundle-Version: 0.6.0.qualifier
+Bundle-Vendor: Aljoschability
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.emf.ecore.xmi,
+ org.eclipse.ui.views.properties.tabbed,
+ org.eclipse.xtend.lib,
+ com.aljoschability.eclipse.core.emf,
+ com.aljoschability.eclipse.core.graphiti,
+ com.aljoschability.eclipse.core.properties,
+ com.aljoschability.eclipse.stodito

@@ -1,0 +1,395 @@
+/**
+ * <copyright>
+ * 
+ * Copyright 2013 by Aljoschability and others. All rights reserved.
+ * 
+ * This program and its materials are made available under the terms of the
+ * Eclipse Public License v1.0 which should be contained in this distribution.
+ * 
+ * Contributors:
+ *    Aljoscha Hark <aljoschability@gmail.com> - Initial code
+ * 
+ * </copyright>
+ */
+@Ecore(nsURI="http://www.aljoschability.com/eclipse/stodito/2011")
+@GenModel(copyrightText="<copyright>\r\n\r\nCopyright 2013 by Aljoschability and others. All rights reserved.\r\n\r\nThis program and its materials are made available under the terms of the\r\nEclipse Public License v1.0 which should be contained in this distribution.\r\n\r\nContributors:\r\n   Aljoscha Hark <aljoschability@gmail.com> - Initial code\r\n\r\n</copyright>",
+	complianceLevel="7.0",
+	nonNLSMarkers="true",
+	codeFormatting="true",
+	creationIcons="false",
+	multipleEditorPages="false",
+	suppressEMFModelTags="true",
+	suppressGenModelAnnotations="false",
+	pluginKey="",
+	providerPackageSuffix="edit",
+	modelDirectory="/com.aljoschability.eclipse.stodito/src/main/xcore",
+	editDirectory="/com.aljoschability.eclipse.stodito.edit/src/main/xcore",
+	editPluginID="com.aljoschability.eclipse.stodito.edit",
+	editPluginClass="com.aljoschability.eclipse.stodito.edit.Activator")
+package com.aljoschability.eclipse.stodito
+
+import org.eclipse.emf.ecore.EClassifier
+import org.eclipse.emf.ecore.EDataType
+import org.eclipse.emf.ecore.EClass
+import org.eclipse.emf.ecore.EAttribute
+import org.eclipse.emf.ecore.EReference
+
+@GenModel(image="false")
+class Activity extends Callable
+{
+	contains ActivityNode[] nodes opposite activity
+	contains ControlFlow[] edges opposite activity
+	String[] packageUris
+}
+
+@GenModel(image="false")
+class CallNode extends ActivityNode, Named, Invocation
+{
+}
+
+@GenModel(image="false")
+class StoryNode extends ActivityNode, Named
+{
+	contains PatternPart[1] pattern opposite node
+	boolean[1] forEach
+}
+
+@GenModel(image="false")
+class StatementNode extends ActivityNode, Named
+{
+	contains Expression[1] expression
+}
+
+@GenModel(image="false")
+class StructuredNode extends ActivityNode, Named
+{
+	contains ActivityNode[] nodes opposite node
+	contains ControlFlow[] edges opposite node
+}
+
+@GenModel(image="false")
+class ControlFlow
+{
+	contains Expression expression
+	refers ActivityNode[1] source opposite outgoings
+	refers ActivityNode[1] target opposite incomings
+	GuardType[1] guard
+	container StructuredNode node opposite edges
+	container Activity activity opposite edges
+}
+
+@GenModel(image="false")
+class InitialNode extends ActivityNode
+{
+}
+
+@GenModel(image="false")
+class JunctionNode extends ActivityNode
+{
+}
+
+@GenModel(image="false")
+class ActivityFinalNode extends FlowFinalNode
+{
+	contains Expression expression
+}
+
+@GenModel(image="false")
+class FlowFinalNode extends ActivityNode
+{
+} // ######################################## END::ACTIVITIES
+
+@GenModel(image="false")
+class OpaqueCallable extends Callable
+{
+}
+
+@GenModel(image="false")
+class Parameter extends Named
+{
+	refers EClassifier[1] ^type
+}
+
+@GenModel(image="false")
+class ParameterBinding
+{
+	contains Expression[1] expression
+	refers Parameter[1] parameter
+	container Invocation[1] invocation opposite bindings
+} // ######################################## END::CALLS
+
+@GenModel(image="false")
+class PatternPart extends Commentable
+{
+	contains PatternPart[] parts opposite parent
+	contains PrimitiveOccurrence[] primitives opposite pattern
+	contains ObjectOccurrence[] objects opposite pattern
+	contains Connection[] connections opposite pattern
+	contains Constraint[] constraints opposite pattern
+	BindingSemantics[1] semantics
+	container StoryNode node opposite pattern
+	container PatternPart parent opposite parts
+}
+
+@GenModel(image="false")
+class PrimitiveOccurrence extends Occurrence
+{
+	refers EDataType[1] ^type
+	container PatternPart[1] pattern opposite primitives
+}
+
+@GenModel(image="false")
+class ObjectOccurrence extends Occurrence
+{
+	contains AttributeAssignment[] assignments opposite occurrence
+	refers Connection[] incomings opposite target
+	refers Connection[] outgoings opposite source
+	refers EClass[1] ^type
+	BindingSemantics[1] bindingSemantics
+	BindingOperator[1] bindingOperator
+	container PatternPart[1] pattern opposite objects
+}
+
+@GenModel(image="false")
+class CollectionOccurrence extends ObjectOccurrence
+{
+}
+
+@GenModel(image="false")
+class Constraint
+{
+	container PatternPart pattern opposite constraints
+	container Occurrence occurrence opposite constraints
+	contains Expression[1] expression
+}
+
+@GenModel(image="false")
+class AttributeAssignment
+{
+	contains Expression[1] expression
+	refers EAttribute[1] attribute
+	container ObjectOccurrence[1] occurrence opposite assignments
+}
+
+@GenModel(image="false")
+class Link extends Connection
+{
+	contains Expression expression
+	refers EReference[1] ^type
+}
+
+@GenModel(image="false")
+class InclusionLink extends Connection
+{
+}
+
+@GenModel(image="false")
+class SameLink extends Connection
+{
+}
+
+@GenModel(image="false")
+class Path extends Connection
+{
+	contains Expression[1] expression
+} // ######################################## END::PATTERNS
+
+@GenModel(image="false")
+class OclExpression extends Expression
+{
+	String[1] value
+}
+
+@GenModel(image="false")
+class LiteralExpression extends Expression
+{
+	refers EDataType[1] ^type
+	String[1] value
+}
+
+@GenModel(image="false")
+class UnaryExpression extends Expression
+{
+	contains Expression[1] expression
+	UnaryType[1] ^type
+}
+
+@GenModel(image="false")
+class ArithmeticExpression extends Expression
+{
+	contains Expression[1] left
+	ArithmeticOperator[1] operator
+	contains Expression[1] right
+}
+
+@GenModel(image="false")
+class ComparisonExpression extends Expression
+{
+	contains Expression[1] left
+	ComparisonOperator[1] operator
+	contains Expression[1] right
+}
+
+@GenModel(image="false")
+class LogicExpression extends Expression
+{
+	contains Expression[1] left
+	LogicOperator[1] operator
+	contains Expression[1] right
+}
+
+@GenModel(image="false")
+class PrimitiveOccurrenceExpression extends Expression
+{
+	refers PrimitiveOccurrence[1] primitive
+}
+
+@GenModel(image="false")
+class ObjectOccurrenceExpression extends Expression
+{
+	refers ObjectOccurrence[1] occurrence
+}
+
+@GenModel(image="false")
+class ObjectAttributeExpression extends Expression
+{
+	refers ObjectOccurrence[1] occurrence
+	refers EAttribute[1] attribute
+}
+
+@GenModel(image="false")
+class CollectionSizeExpression extends Expression
+{
+	contains Expression[1] expression
+	refers CollectionOccurrence[1] collection
+}
+
+@GenModel(image="false")
+class CallExpression extends Expression
+{
+	contains OpaqueCallable[1] callee
+} //
+
+// ### INTERFACES ########################################
+//
+abstract class Commentable
+{
+	String comment
+}
+
+abstract class Named
+{
+	String[1] name = ""
+}
+
+abstract class Expression extends Commentable
+{
+}
+
+abstract class Callable extends Named, Commentable
+{
+	contains Parameter[] parameters
+	refers EClassifier ^type
+}
+
+abstract class ActivityNode extends Commentable
+{
+	refers ControlFlow[] incomings opposite target
+	refers ControlFlow[] outgoings opposite source
+	container StructuredNode node opposite nodes
+	container Activity activity opposite nodes
+}
+
+abstract class Occurrence extends Named, Commentable
+{
+	contains Constraint[] constraints opposite occurrence
+	contains Expression bindingExpression
+	BindingState[1] bindingState
+}
+
+abstract class Connection
+{
+	refers ObjectOccurrence[1] source opposite outgoings
+	refers ObjectOccurrence[1] target opposite incomings
+	BindingSemantics[1] bindingSemantics
+	BindingOperator[1] bindingOperator
+	container PatternPart pattern opposite connections
+}
+
+abstract class Invocation
+{
+	contains ParameterBinding[] bindings opposite invocation
+	contains Expression returnExpression
+	refers Callable[1] callee
+} //
+
+// ### ENUMS ########################################
+//
+enum GuardType
+{
+	NONE
+	SUCCESS
+	FAILURE
+	BOOL
+	ELSE
+	FOREACH
+	END
+}
+
+enum BindingSemantics
+{
+	MANDATORY
+	OPTIONAL
+	NEGATIVE
+}
+
+enum BindingOperator
+{
+	CHECK
+	CREATE
+	DESTROY
+}
+
+enum BindingState
+{
+	UNBOUND
+	BOUND
+	MAYBE
+}
+
+enum ArithmeticOperator
+{
+	PLUS
+	MINUS
+	TIMES
+	DIVIDED
+	MODULO
+	EXP
+}
+
+enum ComparisonOperator
+{
+	EQUALS
+	LESS
+	LESS_EQUAL
+	GREATER
+	GREATER_EQUAL
+	UNEQUAL
+	REGEX
+}
+
+enum LogicOperator
+{
+	AND
+	OR
+	XOR
+	IMPLY
+	EQUIVALENT
+}
+
+enum UnaryType
+{
+	DEFAULT
+	MINUS
+	NOT
+}

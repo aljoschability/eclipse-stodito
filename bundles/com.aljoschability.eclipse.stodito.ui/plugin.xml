@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="com.aljoschability.eclipse.stodito.ui.newWizards"
+            name="Story Diagram Tooling">
+      </category>
+      <wizard
+            category="com.aljoschability.eclipse.stodito.ui.newWizards"
+            class="com.aljoschability.eclipse.stodito.ui.wizards.NewStoditoModelWizard"
+            icon="icons/files/stories.png"
+            id="com.aljoschability.eclipse.stodito.ui.newWizards.stories"
+            name="Story Diagram Model">
+         <description>
+            Create a new story diagram model file
+         </description>
+      </wizard>
+      <wizard
+            category="com.aljoschability.eclipse.stodito.ui.newWizards"
+            class="com.aljoschability.eclipse.stodito.ui.wizards.NewStoditoDiagramWizard"
+            icon="icons/files/stories_diagrams.png"
+            id="com.aljoschability.eclipse.stodito.ui.newWizards.stories_diagrams"
+            name="Story Diagram">
+         <description>
+            Create a new story diagram file
+         </description>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            class="com.aljoschability.core.emf.editors.EcoreEditor"
+            contributorClass="com.aljoschability.core.emf.editors.EcoreEditorContributor"
+            default="true"
+            extensions="stories"
+            icon="icons/files/stories.png"
+            id="com.aljoschability.eclipse.stodito.editors.stories"
+            name="Story Diagram Model Editor">
+      </editor>
+      <editor
+            class="com.aljoschability.eclipse.stodito.ui.editors.StoditoDiagramEditor"
+            contributorClass="com.aljoschability.eclipse.stodito.ui.editors.StoditoDiagramEditorContributor"
+            default="true"
+            extensions="stories_diagrams"
+            icon="icons/files/stories_diagrams.png"
+            id="com.aljoschability.eclipse.stodito.editors.stories_diagrams"
+            name="Story Diagram Editor">
+      </editor>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            categoryId="com.aljoschability.eclipse.stodito.ui.commands"
+            defaultHandler="com.aljoschability.eclipse.stodito.ui.handlers.InitializeStoditoDiagramHandler"
+            description="Open a wizard to initialize a story diagram from an existing model."
+            id="com.aljoschability.eclipse.stodito.ui.commands.InitializeDiagram"
+            name="Initialize Story Diagram">
+      </command>
+      <category
+            description="Commands related to the story diagram tooling environment"
+            id="com.aljoschability.eclipse.stodito.ui.commands"
+            name="Story Diagram Tooling">
+      </category>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.ui.navigator.ProjectExplorer#PopupMenu?after=additions">
+         <command
+               commandId="com.aljoschability.eclipse.stodito.ui.commands.InitializeDiagram"
+               label="Initialize Story Diagram"
+               style="push">
+         </command>
+      </menuContribution>
+   </extension>
+
+   <extension point="org.eclipse.graphiti.ui.diagramTypeProviders">
+      <diagramTypeProvider
+            class="com.aljoschability.eclipse.stodito.ui.editors.StoditoDiagramTypeProvider"
+            context="org.eclipse.graphiti.ui.diagramEditor"
+            id="http://www.aljoschability.com/eclipse/stodito/2013"
+            name="http://www.aljoschability.com/eclipse/stodito/2013">
+         <diagramType id="http://www.aljoschability.com/eclipse/stodito/2013"/>
+         <imageProvider id="http://www.aljoschability.com/eclipse/stodito/2013"/>
+      </diagramTypeProvider>
+   </extension>
+
+   <extension point="org.eclipse.graphiti.ui.diagramTypes">
+      <diagramType
+            description="Story Diagram Type"
+            id="http://www.aljoschability.com/eclipse/stodito/2013"
+            name="http://www.aljoschability.com/eclipse/stodito/2013"
+            type="http://www.aljoschability.com/eclipse/stodito/2013">
+      </diagramType>
+   </extension>
+   
+</plugin>

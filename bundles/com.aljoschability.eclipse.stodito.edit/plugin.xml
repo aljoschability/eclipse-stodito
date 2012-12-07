@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ 	Copyright 2013 by Aljoschability and others. All rights reserved. This program and its materials are made
+ 	available under the terms of the Eclipse Public License v1.0 which should be contained in this distribution.
+ 
+ 	Contributors:
+ 		Aljoscha Hark <aljoscha@aljoschability.com> - Initial code
+ 
+ </copyright>
+-->
+
+<plugin>
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            uri="http://www.aljoschability.com/eclipse/stodito/2013"
+            class="com.aljoschability.eclipse.stodito.providers.CustomStoditoItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+
+   <extension point="org.eclipse.graphiti.ui.imageProviders">
+      <imageProvider
+            class="com.aljoschability.eclipse.stodito.providers.StoditoImages"
+            id="http://www.aljoschability.com/eclipse/stodito/2013">
+      </imageProvider>
+   </extension>
+
+</plugin>
