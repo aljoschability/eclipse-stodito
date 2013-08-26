@@ -1,3 +1,3 @@
-# Eclipse Core Components
+# Story Diagram Tooling
 
-This repository holds the stapade components.
+This repository contains story diagram tooling for the Eclipse IDE.
