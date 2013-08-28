@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Story Diagram Tooling: UI
+Bundle-Name: %bundle.name
 Bundle-SymbolicName: com.aljoschability.eclipse.stodito.ui;singleton:=true
 Bundle-Version: 0.5.0.qualifier
-Bundle-Vendor: Aljoschability
+Bundle-Vendor: %bundle.vendor
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Require-Bundle: com.google.guava,
