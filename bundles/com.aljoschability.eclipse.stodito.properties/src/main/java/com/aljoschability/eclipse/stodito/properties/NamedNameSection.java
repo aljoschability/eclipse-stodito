@@ -3,7 +3,7 @@ package com.aljoschability.eclipse.stodito.properties;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import com.aljoschability.eclipse.core.properties.graphiti.GraphitiElementAdapter;
-import com.aljoschability.eclipse.core.ui.properties.sections.AbstractTextSection;
+import com.aljoschability.eclipse.core.properties.sections.AbstractTextSection;
 import com.aljoschability.eclipse.stodito.StoditoPackage;
 
 public class NamedNameSection extends AbstractTextSection {
