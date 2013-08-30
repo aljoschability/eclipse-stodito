@@ -12,7 +12,7 @@
 <plugin>
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="http://www.aljoschability.com/eclipse/stodito/2013"
+            uri="http://www.aljoschability.com/eclipse/stodito/2011"
             class="com.aljoschability.eclipse.stodito.StoditoPackage"
             genModel="model/stodito.xcore"/>
    </extension>

@@ -12,7 +12,7 @@
 <plugin>
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
-            uri="http://www.aljoschability.com/eclipse/stodito/2013"
+            uri="http://www.aljoschability.com/eclipse/stodito/2011"
             class="com.aljoschability.eclipse.stodito.edit.CustomStoditoItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
@@ -25,7 +25,7 @@
    <extension point="org.eclipse.graphiti.ui.imageProviders">
       <imageProvider
             class="com.aljoschability.eclipse.stodito.edit.StoditoImages"
-            id="http://www.aljoschability.com/eclipse/stodito/2013">
+            id="http://www.aljoschability.com/eclipse/stodito/2011">
       </imageProvider>
    </extension>
 

@@ -90,19 +90,19 @@
       <diagramTypeProvider
             class="com.aljoschability.eclipse.stodito.ui.editors.StoditoDiagramTypeProvider"
             context="org.eclipse.graphiti.ui.diagramEditor"
-            id="http://www.aljoschability.com/eclipse/stodito/2013"
-            name="http://www.aljoschability.com/eclipse/stodito/2013">
-         <diagramType id="http://www.aljoschability.com/eclipse/stodito/2013"/>
-         <imageProvider id="http://www.aljoschability.com/eclipse/stodito/2013"/>
+            id="http://www.aljoschability.com/eclipse/stodito/2011"
+            name="http://www.aljoschability.com/eclipse/stodito/2011">
+         <diagramType id="http://www.aljoschability.com/eclipse/stodito/2011"/>
+         <imageProvider id="http://www.aljoschability.com/eclipse/stodito/2011"/>
       </diagramTypeProvider>
    </extension>
 
    <extension point="org.eclipse.graphiti.ui.diagramTypes">
       <diagramType
             description="Story Diagram Type"
-            id="http://www.aljoschability.com/eclipse/stodito/2013"
-            name="http://www.aljoschability.com/eclipse/stodito/2013"
-            type="http://www.aljoschability.com/eclipse/stodito/2013">
+            id="http://www.aljoschability.com/eclipse/stodito/2011"
+            name="http://www.aljoschability.com/eclipse/stodito/2011"
+            type="http://www.aljoschability.com/eclipse/stodito/2011">
       </diagramType>
    </extension>
    

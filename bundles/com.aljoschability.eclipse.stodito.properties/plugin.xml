@@ -13,7 +13,7 @@
    <extension
          point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
       <propertyContributor
-            contributorId="http://www.aljoschability.com/eclipse/stodito/2013.PropertyContributor"
+            contributorId="http://www.aljoschability.com/eclipse/stodito/2011.PropertyContributor"
             labelProvider="com.aljoschability.eclipse.stodito.properties.PropertiesLabelProvider"
             typeMapper="com.aljoschability.eclipse.core.properties.graphiti.GraphitiTypeMapper">
          <propertyCategory
@@ -23,7 +23,7 @@
    <extension
          point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
       <propertyTabs
-            contributorId="http://www.aljoschability.com/eclipse/stodito/2013.PropertyContributor">
+            contributorId="http://www.aljoschability.com/eclipse/stodito/2011.PropertyContributor">
          <propertyTab
                category="model"
                id="general"
@@ -34,7 +34,7 @@
    <extension
          point="org.eclipse.ui.views.properties.tabbed.propertySections">
       <propertySections
-            contributorId="http://www.aljoschability.com/eclipse/stodito/2013.PropertyContributor">
+            contributorId="http://www.aljoschability.com/eclipse/stodito/2011.PropertyContributor">
          <propertySection
                class="com.aljoschability.eclipse.stodito.properties.NamedNameSection"
                enablesFor="1"
