@@ -79,12 +79,13 @@ class StoryNodePattern extends CorePattern {
 					addPoint(parentGraphicsAlgorithm.width, 29)
 				]
 			]
-			val contents = addContainerShape[
+			val contents = it.addContainerShape [
 				name = "contents"
-				active = true
+				active = false
 				val contentsRectangle = addRectangle[
-					position = #[5, 30]
-					size = context.size(200, 100)
+					position = #[5, 34]
+					width = context.size(200, 100).get(0) - 10
+					height = context.size(200, 100).get(1) - 39
 				]
 			]
 		]
@@ -92,10 +93,10 @@ class StoryNodePattern extends CorePattern {
 
 	override canDirectEdit(IDirectEditingContext context) {
 		context.graphicsAlgorithm
-		
+
 		return false
 	}
-	
+
 	override isElement(EObject element) {
 		return element instanceof StoryNode
 	}
