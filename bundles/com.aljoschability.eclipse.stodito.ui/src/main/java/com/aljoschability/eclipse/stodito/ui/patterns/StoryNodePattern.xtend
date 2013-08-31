@@ -12,6 +12,7 @@ import org.eclipse.graphiti.services.Graphiti
 import org.eclipse.graphiti.mm.pictograms.ContainerShape
 import org.eclipse.graphiti.features.context.IAreaContext
 import org.eclipse.graphiti.features.context.IDirectEditingContext
+import org.eclipse.graphiti.func.IDirectEditing
 
 class StoryNodeExtensions {
 	def String getSymbol() {
@@ -91,8 +92,29 @@ class StoryNodePattern extends CorePattern {
 		]
 	}
 
+	override getInitialValue(IDirectEditingContext context) {
+		if (isPatternControlled(context.pictogramElement)) {
+			val name = Graphiti::getPeService.getPropertyValue(context.graphicsAlgorithm, "name")
+			if (name == "title.text") {
+				val bo = getBusinessObject(context.pictogramElement) as StoryNode
+				return bo.name
+			}
+		}
+
+		super.getInitialValue(context)
+	}
+
+	override getEditingType() {
+		IDirectEditing::TYPE_TEXT
+	}
+
 	override canDirectEdit(IDirectEditingContext context) {
-		context.graphicsAlgorithm
+		if (isPatternControlled(context.pictogramElement)) {
+			val name = Graphiti::getPeService.getPropertyValue(context.graphicsAlgorithm, "name")
+			if (name == "title.text") {
+				return true
+			}
+		}
 
 		return false
 	}
