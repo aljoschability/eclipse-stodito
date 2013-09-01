@@ -2,7 +2,6 @@ package com.aljoschability.eclipse.stodito.diagram
 
 import com.aljoschability.eclipse.core.graphiti.editors.CoreToolBehaviorProvider
 import com.aljoschability.eclipse.stodito.StoditoPackage
-import com.aljoschability.eclipse.stodito.diagram.features.ActivityFinalNodeCreateFeature
 import com.aljoschability.eclipse.stodito.diagram.features.CallNodeCreateFeature
 import com.aljoschability.eclipse.stodito.diagram.features.ControlFlowCreateFeature
 import com.aljoschability.eclipse.stodito.diagram.features.CreateAttributeAssignmentFeature
@@ -12,7 +11,7 @@ import com.aljoschability.eclipse.stodito.diagram.features.CreateInclusionLinkOc
 import com.aljoschability.eclipse.stodito.diagram.features.CreateLinkOccurenceFeature
 import com.aljoschability.eclipse.stodito.diagram.features.CreateObjectOccurrenceFeature
 import com.aljoschability.eclipse.stodito.diagram.features.CreatePathFeature
-import com.aljoschability.eclipse.stodito.diagram.features.FlowFinalNodeCreateFeature
+import com.aljoschability.eclipse.stodito.diagram.features.FinalNodeCreateFeature
 import com.aljoschability.eclipse.stodito.diagram.features.InitialNodeCreateFeature
 import com.aljoschability.eclipse.stodito.diagram.features.JunctionNodeCreateFeature
 import com.aljoschability.eclipse.stodito.diagram.features.StatementNodeCreateFeature
@@ -59,8 +58,7 @@ class StoditoToolBehaviorProvider extends CoreToolBehaviorProvider {
 		// control nodes
 		entry.toolEntries += new InitialNodeCreateFeature(featureProvider).creationTool
 		entry.toolEntries += new JunctionNodeCreateFeature(featureProvider).creationTool
-		entry.toolEntries += new FlowFinalNodeCreateFeature(featureProvider).creationTool
-		entry.toolEntries += new ActivityFinalNodeCreateFeature(featureProvider).creationTool
+		entry.toolEntries += new FinalNodeCreateFeature(featureProvider).creationTool
 
 		return entry
 	}

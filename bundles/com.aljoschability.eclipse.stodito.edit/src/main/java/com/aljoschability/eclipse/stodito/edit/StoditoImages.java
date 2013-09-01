@@ -14,7 +14,6 @@ public class StoditoImages extends AbstractImageProvider {
 
 	@Override
 	protected void addAvailableImages() {
-		add(StoditoPackage.Literals.ACTIVITY_FINAL_NODE);
 		add(StoditoPackage.Literals.ACTIVITY);
 		add(StoditoPackage.Literals.ARITHMETIC_EXPRESSION);
 		add(StoditoPackage.Literals.ATTRIBUTE_ASSIGNMENT);
@@ -25,7 +24,7 @@ public class StoditoImages extends AbstractImageProvider {
 		add(StoditoPackage.Literals.COMPARISON_EXPRESSION);
 		add(StoditoPackage.Literals.CONSTRAINT);
 		add(StoditoPackage.Literals.CONTROL_FLOW);
-		add(StoditoPackage.Literals.FLOW_FINAL_NODE);
+		add(StoditoPackage.Literals.FINAL_NODE);
 		add(StoditoPackage.Literals.INCLUSION_LINK);
 		add(StoditoPackage.Literals.INITIAL_NODE);
 		add(StoditoPackage.Literals.JUNCTION_NODE);

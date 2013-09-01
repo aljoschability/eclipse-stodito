@@ -8,11 +8,11 @@ import java.util.Map;
 import org.eclipse.emf.ecore.EClassifier;
 
 import com.aljoschability.eclipse.stodito.Activity;
-import com.aljoschability.eclipse.stodito.ActivityFinalNode;
 import com.aljoschability.eclipse.stodito.ActivityNode;
 import com.aljoschability.eclipse.stodito.CallNode;
 import com.aljoschability.eclipse.stodito.ControlFlow;
 import com.aljoschability.eclipse.stodito.Expression;
+import com.aljoschability.eclipse.stodito.FinalNode;
 import com.aljoschability.eclipse.stodito.GuardType;
 import com.aljoschability.eclipse.stodito.InitialNode;
 import com.aljoschability.eclipse.stodito.JunctionNode;
@@ -114,10 +114,10 @@ public class EvaluatorOLDImpl extends AbstractNotifier implements Evaluator {
 		}
 
 		// evaluate return expression
-		ActivityFinalNode finalNode = null;
+		FinalNode finalNode = null;
 		for (ActivityNode node : activity.getNodes()) {
-			if (node instanceof ActivityFinalNode) {
-				finalNode = (ActivityFinalNode) node;
+			if (node instanceof FinalNode) {
+				finalNode = (FinalNode) node;
 			}
 		}
 
@@ -161,8 +161,8 @@ public class EvaluatorOLDImpl extends AbstractNotifier implements Evaluator {
 		if (node instanceof JunctionNode) {
 			return executeJunctionNode((JunctionNode) node, scope);
 		}
-		if (node instanceof ActivityFinalNode) {
-			return executeActivityFinalNode((ActivityFinalNode) node, scope);
+		if (node instanceof FinalNode) {
+			return executeFinalNode((FinalNode) node, scope);
 		}
 
 		throw new InterpreterException();
@@ -400,7 +400,7 @@ public class EvaluatorOLDImpl extends AbstractNotifier implements Evaluator {
 		return null;
 	}
 
-	private ActivityNode executeActivityFinalNode(ActivityFinalNode node, Scope scope) throws InterpreterException {
+	private ActivityNode executeFinalNode(FinalNode node, Scope scope) throws InterpreterException {
 		// TODO Auto-generated method stub
 		return null;
 	}

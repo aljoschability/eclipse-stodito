@@ -14,8 +14,8 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 
 import com.aljoschability.eclipse.stodito.StoditoPackage;
 
-public class CustomFlowFinalNodeItemProvider extends FlowFinalNodeItemProvider {
-	public CustomFlowFinalNodeItemProvider(AdapterFactory adapterFactory) {
+public class CustomFinalNodeItemProvider extends FinalNodeItemProvider {
+	public CustomFinalNodeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -26,6 +26,6 @@ public class CustomFlowFinalNodeItemProvider extends FlowFinalNodeItemProvider {
 
 	@Override
 	public Object getImage(Object object) {
-		return StoditoImages.get(StoditoPackage.Literals.FLOW_FINAL_NODE.getName());
+		return StoditoImages.get(StoditoPackage.Literals.FINAL_NODE.getName());
 	}
 }

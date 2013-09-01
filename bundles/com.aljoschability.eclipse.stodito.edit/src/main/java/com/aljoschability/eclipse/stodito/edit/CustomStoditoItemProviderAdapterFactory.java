@@ -12,11 +12,11 @@ public class CustomStoditoItemProviderAdapterFactory extends StoditoItemProvider
 	}
 
 	@Override
-	public Adapter createActivityFinalNodeAdapter() {
-		if (activityFinalNodeItemProvider == null) {
-			activityFinalNodeItemProvider = new CustomActivityFinalNodeItemProvider(this);
+	public Adapter createFinalNodeAdapter() {
+		if (finalNodeItemProvider == null) {
+			finalNodeItemProvider = new CustomFinalNodeItemProvider(this);
 		}
-		return activityFinalNodeItemProvider;
+		return finalNodeItemProvider;
 	}
 
 	@Override
@@ -89,14 +89,6 @@ public class CustomStoditoItemProviderAdapterFactory extends StoditoItemProvider
 			controlFlowItemProvider = new CustomControlFlowItemProvider(this);
 		}
 		return controlFlowItemProvider;
-	}
-
-	@Override
-	public Adapter createFlowFinalNodeAdapter() {
-		if (flowFinalNodeItemProvider == null) {
-			flowFinalNodeItemProvider = new CustomFlowFinalNodeItemProvider(this);
-		}
-		return flowFinalNodeItemProvider;
 	}
 
 	@Override

@@ -89,14 +89,9 @@ class JunctionNode extends ActivityNode
 }
 
 @GenModel(image="false")
-class ActivityFinalNode extends FlowFinalNode
+class FinalNode extends ActivityNode
 {
 	contains Expression expression
-}
-
-@GenModel(image="false")
-class FlowFinalNode extends ActivityNode
-{
 } // ######################################## END::ACTIVITIES
 
 @GenModel(image="false")
