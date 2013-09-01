@@ -25,8 +25,7 @@
    <extension point="org.eclipse.graphiti.ui.imageProviders">
       <imageProvider
             class="com.aljoschability.eclipse.stodito.edit.StoditoImages"
-            id="http://www.aljoschability.com/eclipse/stodito/2011">
-      </imageProvider>
+            id="com.aljoschability.eclipse.stodito.diagram"/>
    </extension>
 
 </plugin>

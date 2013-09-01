@@ -6,16 +6,21 @@ Bundle-Version: 0.5.0.qualifier
 Bundle-Vendor: %bundle.vendor
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
-Require-Bundle: com.aljoschability.eclipse.core.graphiti,
+Require-Bundle: com.google.guava,
+ org.eclipse.core.runtime,
+ org.eclipse.emf.transaction,
+ org.eclipse.gef,
  org.eclipse.graphiti,
  org.eclipse.graphiti.mm,
  org.eclipse.graphiti.ui,
- com.aljoschability.eclipse.core.emf,
- com.aljoschability.eclipse.core.runtime,
- com.aljoschability.eclipse.core.ui,
- com.google.guava,
- org.eclipse.xtext.xbase.lib,
+ org.eclipse.ui,
+ org.eclipse.ui.ide,
+ org.eclipse.ui.views.properties.tabbed,
  org.eclipse.xtend.lib,
  org.eclipse.xtend.lib.macro,
+ org.eclipse.xtext.xbase.lib,
+ com.aljoschability.eclipse.core.emf,
+ com.aljoschability.eclipse.core.graphiti,
+ com.aljoschability.eclipse.core.runtime,
+ com.aljoschability.eclipse.core.ui,
  com.aljoschability.eclipse.stodito
-

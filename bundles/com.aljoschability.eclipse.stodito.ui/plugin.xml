@@ -36,27 +36,6 @@
          </description>
       </wizard>
    </extension>
-
-   <extension point="org.eclipse.ui.editors">
-      <editor
-            class="com.aljoschability.core.emf.editors.EcoreEditor"
-            contributorClass="com.aljoschability.core.emf.editors.EcoreEditorContributor"
-            default="true"
-            extensions="stories"
-            icon="icons/files/stories.png"
-            id="com.aljoschability.eclipse.stodito.editors.stories"
-            name="Story Diagram Model Editor">
-      </editor>
-      <editor
-            class="com.aljoschability.eclipse.stodito.ui.editors.StoditoDiagramEditor"
-            contributorClass="com.aljoschability.eclipse.stodito.ui.editors.StoditoDiagramEditorContributor"
-            default="true"
-            extensions="stories_diagrams"
-            icon="icons/files/stories_diagrams.png"
-            id="com.aljoschability.eclipse.stodito.editors.stories_diagrams"
-            name="Story Diagram Editor">
-      </editor>
-   </extension>
    
    <extension
          point="org.eclipse.ui.commands">
@@ -85,25 +64,4 @@
          </command>
       </menuContribution>
    </extension>
-
-   <extension point="org.eclipse.graphiti.ui.diagramTypeProviders">
-      <diagramTypeProvider
-            class="com.aljoschability.eclipse.stodito.ui.editors.StoditoDiagramTypeProvider"
-            context="org.eclipse.graphiti.ui.diagramEditor"
-            id="http://www.aljoschability.com/eclipse/stodito/2011"
-            name="http://www.aljoschability.com/eclipse/stodito/2011">
-         <diagramType id="http://www.aljoschability.com/eclipse/stodito/2011"/>
-         <imageProvider id="http://www.aljoschability.com/eclipse/stodito/2011"/>
-      </diagramTypeProvider>
-   </extension>
-
-   <extension point="org.eclipse.graphiti.ui.diagramTypes">
-      <diagramType
-            description="Story Diagram Type"
-            id="http://www.aljoschability.com/eclipse/stodito/2011"
-            name="http://www.aljoschability.com/eclipse/stodito/2011"
-            type="http://www.aljoschability.com/eclipse/stodito/2011">
-      </diagramType>
-   </extension>
-   
 </plugin>
