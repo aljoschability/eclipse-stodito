@@ -23,15 +23,16 @@
 	<modules>
 		<!-- bundles -->
 		<module>bundles/com.aljoschability.eclipse.stodito</module>
+		<module>bundles/com.aljoschability.eclipse.stodito.diagram</module>
 		<module>bundles/com.aljoschability.eclipse.stodito.edit</module>
 		<module>bundles/com.aljoschability.eclipse.stodito.help</module>
 		<!-- <module>bundles/com.aljoschability.eclipse.stodito.importer.storydriven</module> -->
 		<module>bundles/com.aljoschability.eclipse.stodito.interpreter</module>
-		<module>bundles/com.aljoschability.eclipse.stodito.preferences</module>
 		<module>bundles/com.aljoschability.eclipse.stodito.properties</module>
 		<module>bundles/com.aljoschability.eclipse.stodito.ui</module>
 		<!-- features -->
 		<module>features/com.aljoschability.eclipse.stodito.feature</module>
+		<module>features/com.aljoschability.eclipse.stodito.storydriven.feature</module>
 		<!-- repositories -->
 		<module>repositories/com.aljoschability.eclipse.stodito.repository</module>
 	</modules>
@@ -45,6 +46,11 @@
 			<id>eclipse-license</id>
 			<url>http://download.eclipse.org/cbi/updates/license/</url>
 			<layout>p2</layout>
+		</repository>
+		<repository>
+			<id>sdm-commons</id>
+			<layout>p2</layout>
+			<url>https://svn-serv.cs.uni-paderborn.de/updatesites/trunk/storydriven/</url>
 		</repository>
 	</repositories>
 	<build>
