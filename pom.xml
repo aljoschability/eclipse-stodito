@@ -32,7 +32,7 @@
 		<module>bundles/com.aljoschability.eclipse.stodito.ui</module>
 		<!-- features -->
 		<module>features/com.aljoschability.eclipse.stodito.feature</module>
-		<module>features/com.aljoschability.eclipse.stodito.storydriven.feature</module>
+		<!-- <module>features/com.aljoschability.eclipse.stodito.storydriven.feature</module> -->
 		<!-- repositories -->
 		<module>repositories/com.aljoschability.eclipse.stodito.repository</module>
 	</modules>

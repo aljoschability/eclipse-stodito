@@ -3,9 +3,11 @@
    <feature url="features/com.aljoschability.eclipse.stodito.feature_0.5.0.qualifier.jar" id="com.aljoschability.eclipse.stodito.feature" version="0.5.0.qualifier">
       <category name="com.aljoschability.eclipse.stodito"/>
    </feature>
+   <!--
    <feature url="features/com.aljoschability.eclipse.stodito.storydriven.feature_0.5.0.qualifier.jar" id="com.aljoschability.eclipse.stodito.storydriven.feature" version="0.5.0.qualifier">
       <category name="com.aljoschability.eclipse.stodito"/>
    </feature>
+   -->
    <category-def name="com.aljoschability.eclipse.stodito" label="Eclipse Stodito">
       <description>
          This contains all Eclipse Stodito features.
