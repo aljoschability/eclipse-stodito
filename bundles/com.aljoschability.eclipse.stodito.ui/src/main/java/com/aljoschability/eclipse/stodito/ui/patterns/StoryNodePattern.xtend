@@ -1,49 +1,26 @@
 package com.aljoschability.eclipse.stodito.ui.patterns;
 
-import com.aljoschability.eclipse.core.graphiti.GraphitiExtensions
 import com.aljoschability.eclipse.core.graphiti.patterns.CorePattern
+import com.aljoschability.eclipse.core.graphiti.util.GraphitiExtensions
 import com.aljoschability.eclipse.stodito.StoditoPackage
 import com.aljoschability.eclipse.stodito.StoryNode
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.graphiti.features.context.IAddContext
-import org.eclipse.graphiti.util.IColorConstant
-import org.eclipse.graphiti.mm.algorithms.GraphicsAlgorithm
-import org.eclipse.graphiti.services.Graphiti
-import org.eclipse.graphiti.mm.pictograms.ContainerShape
 import org.eclipse.graphiti.features.context.IAreaContext
 import org.eclipse.graphiti.features.context.IDirectEditingContext
 import org.eclipse.graphiti.func.IDirectEditing
+import org.eclipse.graphiti.mm.pictograms.ContainerShape
+import org.eclipse.graphiti.services.Graphiti
+import org.eclipse.graphiti.util.IColorConstant
 
 class StoryNodeExtensions {
 	def String getSymbol() {
 		return StoditoPackage.Literals::STORY_NODE.name
 	}
-
-	def ContainerShape getContainer(IAddContext context) {
-		return context.targetContainer
-	}
-
-	def int[] size(IAreaContext context, int minWidth, int minHeight) {
-		var width = minWidth
-		if (width < context.width) {
-			width = context.width
-		}
-
-		var height = minHeight
-		if (height < context.height) {
-			height = context.height
-		}
-
-		return #[width, height]
-	}
-
-	def int[] position(IAreaContext context) {
-		return #[context.x, context.y]
-	}
 }
 
 class StoryNodePattern extends CorePattern {
-	extension GraphitiExtensions = new GraphitiExtensions
+	extension GraphitiExtensions = GraphitiExtensions::INSTANCE
 	extension StoryNodeExtensions = new StoryNodeExtensions
 
 	override add(IAddContext context) {
