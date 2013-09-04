@@ -5,10 +5,10 @@ import org.eclipse.graphiti.features.IFeatureProvider
 
 public class CreateCollectionOccurrenceFeature extends AbstractCreateOccurrenceFeature {
 	new(IFeatureProvider fp) {
-		super(fp, "Collection");
-	}
+		super(fp, "Collection")
 
-	override protected getEClass() {
-		return StoditoPackage.Literals.COLLECTION_OCCURRENCE;
+		name = "Collection"
+		description = "Create Collection Occurence"
+		imageId = StoditoPackage.Literals::COLLECTION_OCCURRENCE.name
 	}
 }

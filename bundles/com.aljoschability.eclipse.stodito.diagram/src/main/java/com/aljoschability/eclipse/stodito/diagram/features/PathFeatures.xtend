@@ -1,15 +1,27 @@
 package com.aljoschability.eclipse.stodito.diagram.features;
 
-import com.aljoschability.eclipse.core.graphiti.features.CoreCreateEdgeFeature
+import com.aljoschability.eclipse.core.graphiti.features.CoreCreateConnectionFeature
 import com.aljoschability.eclipse.stodito.StoditoPackage
 import org.eclipse.graphiti.features.IFeatureProvider
+import org.eclipse.graphiti.features.context.ICreateConnectionContext
 
-class CreatePathFeature extends CoreCreateEdgeFeature {
+class CreatePathFeature extends CoreCreateConnectionFeature {
 	new(IFeatureProvider fp) {
-		super(fp, "Path")
+		super(fp)
+
+		name = "Path"
+		imageId = StoditoPackage.Literals::PATH.name
 	}
 
-	override protected getEClass() {
-		return StoditoPackage.Literals::PATH
+	override protected createElement(ICreateConnectionContext context) {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+
+	override canCreate(ICreateConnectionContext context) {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+
+	override canStartConnection(ICreateConnectionContext context) {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
 	}
 }
