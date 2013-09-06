@@ -1,15 +1,14 @@
 package com.aljoschability.eclipse.stodito.ui.patterns;
 
 import com.aljoschability.eclipse.core.graphiti.patterns.CorePattern
+import com.aljoschability.eclipse.core.graphiti.services.CreateService
 import com.aljoschability.eclipse.core.graphiti.util.GraphitiExtensions
 import com.aljoschability.eclipse.stodito.StoditoPackage
 import com.aljoschability.eclipse.stodito.StoryNode
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.graphiti.features.context.IAddContext
-import org.eclipse.graphiti.features.context.IAreaContext
 import org.eclipse.graphiti.features.context.IDirectEditingContext
 import org.eclipse.graphiti.func.IDirectEditing
-import org.eclipse.graphiti.mm.pictograms.ContainerShape
 import org.eclipse.graphiti.services.Graphiti
 import org.eclipse.graphiti.util.IColorConstant
 
@@ -22,27 +21,26 @@ class StoryNodeExtensions {
 class StoryNodePattern extends CorePattern {
 	extension GraphitiExtensions = GraphitiExtensions::INSTANCE
 	extension StoryNodeExtensions = new StoryNodeExtensions
+	extension CreateService = CreateService::INSTANCE
 
 	override add(IAddContext context) {
 		val nameFont = manageFont("Segoe UI", 10, false, true)
 
-		return addContainerShape [
-			container = context.container
-			active = true
+		return context.container.newContainerShape [
 			link = context.newObject
-			val frame = addRoundedRectangle[
+			val frame = newRoundedRectangle[
 				background = IColorConstant::WHITE
 				foreground = IColorConstant::BLACK
 				radius = 16
 				position = context.position
 				size = context.size(200, 100)
-				val titleSymbol = addImage[
+				val titleSymbol = newImage[
 					name = "title.symbol"
 					id = symbol
 					position = #[7, 7]
 					size = #[16, 16]
 				]
-				val titleText = addText[
+				val titleText = newText[
 					name = "title.text"
 					position = #[27, 5]
 					width = parentGraphicsAlgorithm.width - 54
@@ -51,16 +49,16 @@ class StoryNodePattern extends CorePattern {
 					font = nameFont
 					value = "Test Calibri Font"
 				]
-				val titleSeparator = addPolyline[
+				val titleSeparator = newPolyline[
 					name = "title.separator"
-					addPoint(0, 29)
-					addPoint(parentGraphicsAlgorithm.width, 29)
+					newPoint(0, 29)
+					newPoint(parentGraphicsAlgorithm.width, 29)
 				]
 			]
-			val contents = it.addContainerShape [
+			val contents = it.newContainerShape [
 				name = "contents"
 				active = false
-				val contentsRectangle = addRectangle[
+				val contentsRectangle = newRectangle[
 					position = #[5, 34]
 					width = context.size(200, 100).get(0) - 10
 					height = context.size(200, 100).get(1) - 39
