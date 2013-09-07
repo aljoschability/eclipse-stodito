@@ -28,19 +28,17 @@ class StoryNodePattern extends CorePattern {
 
 		return context.container.addContainerShape [
 			link = context.newObject
-			val frame = newRoundedRectangle[
+			val frame = addRoundedRectangle[
 				background = IColorConstant::WHITE
 				foreground = IColorConstant::BLACK
 				radius = 16
 				position = context.position
 				size = context.size(200, 100)
-				val titleSymbol = newImage[
-					name = "title.symbol"
-					id = symbol
+				val titleSymbol = addImage(symbol) [
 					position = #[7, 7]
 					size = #[16, 16]
 				]
-				val titleText = newText[
+				val titleText = addText[
 					name = "title.text"
 					position = #[27, 5]
 					width = parentGraphicsAlgorithm.width - 54
@@ -49,16 +47,16 @@ class StoryNodePattern extends CorePattern {
 					font = nameFont
 					value = "Test Calibri Font"
 				]
-				val titleSeparator = newPolyline[
+				val titleSeparator = addPolyline[
 					name = "title.separator"
-					newPoint(0, 29)
-					newPoint(parentGraphicsAlgorithm.width, 29)
+					addPoint(0, 29)
+					addPoint(parentGraphicsAlgorithm.width, 29)
 				]
 			]
 			val contents = it.addContainerShape [
 				name = "contents"
 				active = false
-				val contentsRectangle = newRectangle[
+				val contentsRectangle = addRectangle[
 					position = #[5, 34]
 					width = context.size(200, 100).get(0) - 10
 					height = context.size(200, 100).get(1) - 39
