@@ -1,7 +1,6 @@
 package com.aljoschability.eclipse.stodito.ui.patterns;
 
 import com.aljoschability.eclipse.core.graphiti.patterns.CorePattern
-import com.aljoschability.eclipse.core.graphiti.services.CreateService
 import com.aljoschability.eclipse.core.graphiti.util.GraphitiExtensions
 import com.aljoschability.eclipse.stodito.StoditoPackage
 import com.aljoschability.eclipse.stodito.StoryNode
@@ -11,6 +10,7 @@ import org.eclipse.graphiti.features.context.IDirectEditingContext
 import org.eclipse.graphiti.func.IDirectEditing
 import org.eclipse.graphiti.services.Graphiti
 import org.eclipse.graphiti.util.IColorConstant
+import com.aljoschability.eclipse.core.graphiti.services.AddService
 
 class StoryNodeExtensions {
 	def String getSymbol() {
@@ -21,12 +21,12 @@ class StoryNodeExtensions {
 class StoryNodePattern extends CorePattern {
 	extension GraphitiExtensions = GraphitiExtensions::INSTANCE
 	extension StoryNodeExtensions = new StoryNodeExtensions
-	extension CreateService = CreateService::INSTANCE
+	extension AddService = AddService::INSTANCE
 
 	override add(IAddContext context) {
 		val nameFont = manageFont("Segoe UI", 10, false, true)
 
-		return context.container.newContainerShape [
+		return context.container.addContainerShape [
 			link = context.newObject
 			val frame = newRoundedRectangle[
 				background = IColorConstant::WHITE
@@ -55,7 +55,7 @@ class StoryNodePattern extends CorePattern {
 					newPoint(parentGraphicsAlgorithm.width, 29)
 				]
 			]
-			val contents = it.newContainerShape [
+			val contents = it.addContainerShape [
 				name = "contents"
 				active = false
 				val contentsRectangle = newRectangle[
